@@ -3,14 +3,14 @@
 
 ## AUXPI
 
-**基于 API 的简单图床**
-
-
+**集合多家 API 的新一代图床**
 
 [![GitHub issues](https://img.shields.io/github/issues/aimerforreimu/AUXPI.svg)](https://github.com/aimerforreimu/AUXPI/issues)
 [![GitHub forks](https://img.shields.io/github/forks/aimerforreimu/AUXPI.svg)](https://github.com/aimerforreimu/AUXPI/network)
 [![GitHub stars](https://img.shields.io/github/stars/aimerforreimu/AUXPI.svg)](https://github.com/aimerforreimu/AUXPI/stargazers)
 [![GitHub license](https://img.shields.io/github/license/aimerforreimu/AUXPI.svg)](https://github.com/aimerforreimu/AUXPI)
+[![Travis CI](https://travis-ci.org/aimerforreimu/auxpi.svg?branch=dev)](https://travis-ci.org/aimerforreimu/auxpi)
+
 
 本项目使用 beego + vue + element-ui 进行开发
 
@@ -32,21 +32,7 @@
 
 * 支持 web 上传图片
 * 支持 API 上传图片
-* 支持图床:
-    
-    * 搜狗
-    * 新浪 (私有+公共)
-    * SMMS 
-    * 奇虎 (360)
-    * 百度  
-    * 阿里
-    * 京东
-    * Upload.cc
-    * Flickr
-    * 网易
-    * 掘金
-    * 本地 
-
+* 支持分发，控制反转
 * 各种自由定制请看下面的截图
 
     
@@ -58,9 +44,22 @@
 
 ![管理员后台](https://ws3.sinaimg.cn/large/007DFgJwgy1g10eavu2zqj31ha0obdii.jpg)
 
-![用户后台](https://ws3.sinaimg.cn/large/007DFgJwgy1g10ejf74lzj31h70ogtey.jpg)
+![设置](https://ae01.alicdn.com/kf/HTB1w8QeT4jaK1RjSZFA762dLFXaS.png)
+      
 
-![设置页面](https://ws4.sinaimg.cn/large/007DFgJwgy1g10fkgqdsnj30u018cq9x.jpg)
+支持拖拽对首页的菜单进行排序和开关控制
+
+![拖拽](https://ae01.alicdn.com/kf/HTB1aWD3TYvpK1RjSZFq5jcXUVXat.gif)
+
+图片链接按照权重进行异步分发
+
+![分发](https://ae01.alicdn.com/kf/HTB1VljYTYPpK1RjSZFF5ja5PpXam.gif)
+
+首页有几个可视化的图表，方便分析
+
+![首页](https://ae01.alicdn.com/kf/HTB1yTweT4YaK1RjSZFn5ja80pXaq.gif)
+
+
 
 ---
 
@@ -68,7 +67,6 @@
 
 有问题请到 Issue 中提出
 
-官方站点为 [AuXpI 图床](https://imgx.0w0.tn/)
 
 
 ## 安装教程
@@ -85,7 +83,10 @@ https://github.com/aimerforreimu/AUXPI/wiki/%E5%9B%BE%E5%BA%8A%E9%85%8D%E7%BD%AE
 
 
 
+
 演示站点为 [https://test.0w0.tn/](https://test.0w0.tn/)
+
+请勿滥用，滥用者将被加入 ip 黑名单并且放到 github 上公示
 
 演示站点管理员账户:
 ```text
@@ -93,6 +94,10 @@ https://github.com/aimerforreimu/AUXPI/wiki/%E5%9B%BE%E5%BA%8A%E9%85%8D%E7%BD%AE
 密码:admin123
 邮箱:auxpi@0w0.tn
 ```
+## 分发原理
+
+![流程图](https://ae01.alicdn.com/kf/HTB1ikH2TY2pK1RjSZFs761NlXXaN.png)
+
 
 ## 开发人员 && 折腾用户
 
@@ -198,7 +203,7 @@ GOOS=darwin GOARCH=amd64 bee pack
 
 ## API 上传
 
-其实当时写这个程序的时候没有想要写前端的页面，是看到了另一位大佬的图床，感觉这个前端页面很好看才写网页版上传，本来想直接写个 API 服务.
+
 
 ### API 上传实例
 
@@ -305,9 +310,7 @@ API 未开启返回值
 
 * [x] API 上传
 
-* [ ] API 自动文档
-
-* [ ] API v2 版本分发上传,返回所有图床储存链接 
+* [x] API v2 版本分发上传,返回所有图床储存链接 
 
 * [x] 用户系统
 
@@ -319,16 +322,30 @@ API 未开启返回值
 
 * [x] 使用 MySQL 而不是 JSON
 
+* [ ] API 自动文档
+
+* [ ] 国际化
+
+* [ ] 多缓存选择 Memory|redis|file|Memcached
+
+* [ ] 用户后台重构
+
+* [ ] 定时任务调度
 
 ## 说明
 
 本项目是学习 Go 的过程中，边学边写出来的程序，可能存在 bug 连篇 ，逻辑让人无法接受，南辕北辙，代码无法让人直视等副作用。
 
 ## 致敬
+[@ astaxie](https://github.com/astaxie) (beego)
 
-[wisp-x](https://github.com/wisp-x)
+[@ PanJiaChen](https://github.com/PanJiaChen) (vue-element-admin)
 
-[astaxie](https://github.com/astaxie)
+[@ metowolf](https://github.com/metowolf/upimg-cli) (upimg-cli)
+
+[@ wisp-x](https://github.com/wisp-x) (lsky-pro)
+
+
 
 ## LICENSE
 
